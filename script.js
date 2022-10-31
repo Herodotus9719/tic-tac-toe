@@ -133,8 +133,6 @@ function restartGame() {
         gameStatus = true;
     }
 }
-=
-
 
 // `${event.target.className}`
 
