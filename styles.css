@@ -1,0 +1,50 @@
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
+button {
+    height: 40px;
+    width: 40px;
+    vertical-align: top;
+}
+
+.top {
+    display: flex;
+    gap: 5px;
+}
+
+.middle {
+    display: flex;
+    gap: 5px;
+}
+
+.bottom {
+    display: flex;
+    gap: 5px;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-start-bundle {
+    position: absolute;
+    bottom: 100px;
+}
+
+.start,
+.restart {
+    width: 80px;
+}
