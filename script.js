@@ -2,7 +2,7 @@ const gameboard = {
     board: ['top-l', 'top-m', 'top-r', 'mid-l', 'mid-m', 'mid-r', 'btm-l', 'btm-m', 'btm-r'],
     player1: [],
     player2: [],
-    gameFlow: [],
+    movesMade: [],
     winningCombos: [
         ['top-l', 'top-m', 'top-r'],
         ['mid-l', 'mid-m', 'mid-r'],
@@ -52,22 +52,25 @@ function game() {
     document.addEventListener('click', makeMark);
     function makeMark(event) {
         const element = event.target;
-        console.log(element.classList[0]);
-        if (element.tagName === 'BUTTON' && element.classList[0] !== 'start' && element.classList[0] !== 'restart' && !element.style.color) {
+        // console.log(element.classList[0]);
+        if (element.tagName === 'BUTTON' && !(element.classList[0] === 'start') && !(element.classList[0] === 'restart')) {
             if (!gameWon) {
                 function addMove() {
-                    if (currentPlayer === 1) {
+                    if (currentPlayer === 1 && !(element.classList[0] in gameboard.movesMade)) {
+                        console.log(element.classList[0]);
                         let moveName = '';
                         moveName = element.classList[0];
                         gameboard.player1.push(moveName);
+                        gameboard.movesMade.push(moveName);
                         console.log(gameboard.player1);
                         document.querySelector(`.${element.classList[0]}`).textContent = 'X';
                         document.querySelector(`.${element.classList[0]}`).style.color = 'red';
                     }
-                    if (currentPlayer === 2) {
+                    if (currentPlayer === 2 && !(element.classList[0] in gameboard.movesMade)) {
                         let moveName = '';
                         moveName = element.classList[0];
                         gameboard.player2.push(moveName);
+                        gameboard.movesMade.push(moveName);
                         console.log(gameboard.player2);
                         document.querySelector(`.${element.classList[0]}`).textContent = 'O';
                         document.querySelector(`.${element.classList[0]}`).style.color = 'blue';
@@ -130,8 +133,7 @@ function restartGame() {
         gameStatus = true;
     }
 }
-
-
+=
 
 
 // `${event.target.className}`
